@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #070707;
+}
+
+@keyframes cambioColor {
+    0%, 100% { --color: firebrick;}
+    25% { --color: #ff5733;}
+    50% { --color: #ffc300;}
+    75% { --color: #C70039;}
+
+}
+
+.CORAZON{
+    --tamaño: 200px;
+    --color: firebrick;
+    height: var(--tamaño);
+    width: var(--tamaño);      
+    background: var(--color);
+    transform: rotate(45deg);
+    animation: heart .5s infinite alternate ease, cambioColor 8s infinite;
+    position: relative;
+}
+
+.titulo p{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    color: white;
+    font-family: arial, sans-serif;
+    font-size: 40px;
+    white-space: nowrap;
+    z-index: 1;
+
+}
+
+.CORAZON p{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    margin: 0;
+    color: white;
+    font-family: arial, sans-serif;
+    font-size: 20px;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.CORAZON::before, .CORAZON::after{
+    content: "";
+    display: block;
+    border-radius: 50%;
+    height: var(--tamaño);
+    width: var(--tamaño);
+    background: var(--color);
+    position: absolute;
+}
+
+.CORAZON::before {
+    transform: translateY(-100px);
+}
+
+.CORAZON::after {
+    transform: translateX(-100px);
+}
+
+@keyframes heart {
+    from { 
+        transform: scale(1.5) rotate(45deg);
+    }
+}
